@@ -1,6 +1,6 @@
 package com.workgrid.organisation.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,18 +12,19 @@ import com.workgrid.organisation.dto.OrganisationResponseDTO;
 import com.workgrid.organisation.facade.OrganisationFacade;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/organisation")
+@RequiredArgsConstructor
 public class OrganisationController {
 
-	@Autowired
-	private OrganisationFacade organisationFacade;
+	private final OrganisationFacade organisationFacade;
 
 	@PostMapping("/v1/create")
 	public ResponseEntity<OrganisationResponseDTO> createOrganisation(
 			@Valid @RequestBody OrganisationRequestDTO request) {
-		return ResponseEntity.ok(organisationFacade.createOrganisation(request));
+		return ResponseEntity.status(HttpStatus.CREATED).body(organisationFacade.createOrganisation(request));
 	}
 
 }
