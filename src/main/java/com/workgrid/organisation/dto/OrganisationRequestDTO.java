@@ -8,7 +8,4 @@ public class OrganisationRequestDTO {
 
     @NotBlank(message = "Organisation name cannot be blank")
     private String name;
-
-    @NotBlank(message = "Created by cannot be blank")
-    private String createdBy;
 }
