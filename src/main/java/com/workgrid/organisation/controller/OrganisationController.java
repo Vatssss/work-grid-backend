@@ -15,13 +15,13 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/organisation")
+@RequestMapping("/api/organisations")
 @RequiredArgsConstructor
 public class OrganisationController {
 
 	private final OrganisationFacade organisationFacade;
 
-	@PostMapping("/v1/create")
+	@PostMapping
 	public ResponseEntity<OrganisationResponseDTO> createOrganisation(
 			@Valid @RequestBody OrganisationRequestDTO request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(organisationFacade.createOrganisation(request));

@@ -2,7 +2,8 @@ package com.workgrid.organisation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrganisationRepository
-        extends JpaRepository<com.workgrid.organisation.entity.OrganisationEntity, Long> {
+import com.workgrid.organisation.entity.OrganisationEntity;
+
+public interface OrganisationRepository extends JpaRepository<OrganisationEntity, Long> {
 
 }
